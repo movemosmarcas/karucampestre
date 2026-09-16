@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karú Campestre | Vuelve al origen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'karu-verde': '#1F3C23',
+                        'karu-marfil': '#F2D7B7',
+                        'karu-arena': '#B5946A',
+                        'karu-piedra': '#787F65',
+                        'karu-claro': '#F0E4DB'
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Open Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para el Hero Slider */
+        .swiper-hero {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        @keyframes panRight {
+            0% { transform: scale(1.1) translateX(-1.5%); }
+            100% { transform: scale(1.1) translateX(1.5%); }
+        }
+        .swiper-hero .swiper-slide {
+            overflow: hidden;
+        }
+        .swiper-hero .hero-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: panRight 12s linear infinite alternate;
+        }
+        @keyframes panRightFlipped {
+            0% { transform: scaleX(-1.1) scaleY(1.1) translateX(1.5%); }
+            100% { transform: scaleX(-1.1) scaleY(1.1) translateX(-1.5%); }
+        }
+        .swiper-hero .hero-bg-flipped {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: panRightFlipped 12s linear infinite alternate;
+        }
+        /* Overlay eliminado por petición del usuario */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
+        }
+        /* Galería */
+        .swiper-gallery {
+            width: 100%;
+            height: 500px;
+        }
+        .swiper-gallery .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-karu-claro antialiased">
+
+    <!-- 1. Hero Section -->
+    <header class="relative h-screen">
+        <!-- Slider de fondo -->
+        <div class="swiper swiper-hero">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="hero-bg" style="background-image: url('Imagenes/TIPO 2Diagonal.webp');"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-bg-flipped" style="background-image: url('Imagenes/magnific_mejora-la-calidad-de-la-i_hukBs3NvqL.webp');"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-bg" style="background-image: url('Imagenes/magnific__quita-todas-las-casas-y-carreteras-y-reconstruye-e__38548.webp');"></div>
+                </div>
+            </div>
+            <!-- Botones sutiles de navegación -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="hero-content flex relative">
+            <!-- Etiqueta Top Right -->
+            <div class="hidden sm:block absolute top-10 right-10 z-50 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 text-xs uppercase tracking-[0.2em] font-bold shadow-lg">
+                Lotes en Quimbaya, Quindío
+            </div>
+            <!-- Left panel with blur -->
+            <div class="w-full md:w-[45%] h-full bg-white/10 backdrop-blur-md border-r border-white/20 flex flex-col justify-center px-10 md:px-16 lg:px-24">
+                <!-- Logo -->
+                <div class="mb-12">
+                    <img src="logo karu (2).png" alt="Karú Campestre" class="h-24 md:h-32 object-contain opacity-100">
+                </div>
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-10 leading-tight drop-shadow-md">Un <span class="italic">lienzo</span> en la tierra para diseñar tu próximo hogar</h1>
+                <!-- Button -->
+                <div>
+                    <a href="#" onclick="openModal(event)" class="inline-block bg-karu-arena text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-white hover:text-karu-arena transition duration-300">Agenda una visita</a>
+                </div>
+            </div>
+            <!-- Right panel (empty to show natural image) -->
+            <div class="hidden md:block md:w-[55%] h-full"></div>
+        </div>
+    </header>
+
+    <!-- Banner Destacado / Call to Action -->
+    <section class="bg-karu-verde py-8 px-6 text-center shadow-lg relative z-20">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <h2 class="text-2xl md:text-3xl font-serif text-white leading-snug">
+                Lotes campestres en Quimbaya Quindío desde 2.000 m²
+            </h2>
+            <a href="https://wa.me/573332392469?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20proyecto%20Kar%C3%BA%20Campestre" target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-8 py-4 uppercase tracking-widest text-sm hover:bg-[#128C7E] transition duration-300 whitespace-nowrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+                Contáctanos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. El Territorio Emocional -->
+    <section class="py-24 px-6 bg-karu-marfil relative bg-cover bg-center" style="background-image: url('Imagenes/textura.webp');">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-serif text-karu-verde mb-6 leading-tight">El lujo se <span class="text-karu-arena italic">respira</span>,<br>no se ostenta.</h2>
+                <p class="text-lg leading-relaxed mb-8">Un refugio alejado del caos urbano, integrado con el Paisaje Cultural Cafetero. El espacio perfecto entre la tierra y la vida que quieres construir, frente a un samán centenario que ha presenciado generaciones.</p>
+            </div>
+            <div>
+                <div class="bg-white text-karu-verde p-10 lg:p-14 shadow-xl">
+                    <h3 class="text-3xl font-serif mb-2">Etapa 1 ya en venta</h3>
+                    <p class="text-sm text-karu-verde opacity-80 mb-8">Déjenos sus datos y un asesor se pondrá en contacto para brindarle toda la información.</p>
+                    <form action="gracias.html" class="space-y-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold mb-2">Nombre completo</label>
+                            <input type="text" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="Ej. Juan Pérez" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold mb-2">Correo electrónico</label>
+                            <input type="email" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="juan@correo.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold mb-2">Teléfono</label>
+                            <input type="tel" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="+57 300 000 0000" required>
+                        </div>
+                        <div class="flex items-start gap-2 pt-2">
+                            <input type="checkbox" id="privacy-inline" class="mt-0.5 accent-karu-verde" required>
+                            <label for="privacy-inline" class="text-[11px] text-gray-500 leading-tight">
+                                Acepto la <a href="#" class="underline hover:text-karu-verde">política de tratamiento de datos</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-karu-verde text-white py-4 mt-6 uppercase tracking-widest text-sm hover:bg-karu-arena transition duration-300">Enviar</button>
+                        
+                        <div class="mt-8 text-center border-t border-gray-200 pt-6">
+                            <p class="text-sm font-bold text-karu-verde uppercase tracking-wide">
+                                ¿Prefieres hablar ahora?<br>
+                                <a href="tel:+573332392469" class="inline-block mt-2 text-karu-arena text-lg hover:text-karu-verde transition duration-300">Llámanos: +57 333 239 2469</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Ubicación Estratégica -->
+    <section class="bg-karu-claro flex flex-col md:flex-row">
+        <!-- Izquierda: Imagen a full espacio -->
+        <div class="w-full md:w-1/2">
+            <img src="Imagenes/magnific_completa-la-imagen-con-co_6ATSyrOiJO.webp" alt="Karú Campestre" class="w-full h-full object-cover min-h-[400px]">
+        </div>
+        <!-- Derecha: Contenido -->
+        <div class="w-full md:w-1/2 py-24 px-10 md:px-16 lg:px-24 flex flex-col justify-center">
+            <h4 class="text-[11px] font-bold tracking-[0.25em] text-karu-arena uppercase mb-4">Ubicación estratégica</h4>
+            <h2 class="text-4xl md:text-5xl font-serif text-karu-verde mb-6">Un destino <span class="text-karu-arena italic">conectado</span> con el mundo</h2>
+            <p class="text-lg leading-relaxed mb-8 text-gray-700">En el corazón del Paisaje Cafetero, Quimbaya, Quindío. A poca distancia de aeropuertos internacionales y atractivos turísticos, en un entorno de calma inigualable.</p>
+            <ul class="space-y-6">
+                <li class="flex items-center border-b border-karu-marfil pb-4">
+                    <span class="text-3xl font-serif text-karu-arena w-48">30 Minutos</span>
+                    <span class="text-karu-verde uppercase tracking-wide text-sm font-semibold">Parque Nacional del Café</span>
+                </li>
+                <li class="flex items-center border-b border-karu-marfil pb-4">
+                    <span class="text-3xl font-serif text-karu-arena w-48">50 Minutos</span>
+                    <span class="text-karu-verde uppercase tracking-wide text-sm font-semibold">Aeropuerto Int. El Edén</span>
+                </li>
+                <li class="flex items-center border-b border-karu-marfil pb-4">
+                    <span class="text-3xl font-serif text-karu-arena w-48">40 Minutos</span>
+                    <span class="text-karu-verde uppercase tracking-wide text-sm font-semibold">Filandia (Pueblo Patrimonio)</span>
+                </li>
+                <li class="flex items-center pb-4">
+                    <span class="text-3xl font-serif text-karu-arena w-48">100 Minutos</span>
+                    <span class="text-karu-verde uppercase tracking-wide text-sm font-semibold">Valle del Cocora</span>
+                </li>
+            </ul>
+            <div class="mt-10">
+                <a href="#" onclick="openModal(event)" class="inline-block bg-karu-verde text-white font-bold px-8 py-4 uppercase tracking-widest text-sm hover:bg-karu-arena transition duration-300">
+                    Agenda una visita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Proyecto en Cifras -->
+    <section class="py-24 px-6 bg-karu-claro">
+        <div class="max-w-5xl mx-auto text-center mb-16">
+            <h4 class="text-[11px] font-bold tracking-[0.25em] text-karu-arena uppercase mb-4">El proyecto en cifras</h4>
+            <h2 class="text-4xl md:text-5xl font-serif text-karu-verde">
+                En el <span class="text-karu-arena italic">corazón</span> del paisaje cafetero
+            </h2>
+        </div>
+        <div class="max-w-6xl mx-auto">
+            <!-- Grid container with 1px gap to simulate borders -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#d9d4cc] border border-[#d9d4cc]">
+                
+                <!-- Stat 1 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-6xl md:text-7xl font-serif text-karu-verde mb-3">80</div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Lotes campestres</div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-6xl md:text-7xl font-serif text-karu-verde mb-3 flex items-baseline justify-center">
+                        2.000<span class="text-2xl text-karu-arena ml-1">m²</span>
+                    </div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Área promedio por lote</div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-5xl md:text-6xl font-serif text-karu-verde mb-3 flex items-baseline justify-center">
+                        215.353<span class="text-xl md:text-2xl text-karu-arena ml-1">m²</span>
+                    </div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Área total del proyecto</div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-6xl md:text-7xl font-serif text-karu-verde mb-3">1</div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Etapa de desarrollo</div>
+                </div>
+
+                <!-- Row 2 Stat 1 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-6xl md:text-7xl font-serif text-karu-verde mb-3">5</div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Amenidades clave</div>
+                </div>
+
+                <!-- Row 2 Stat 2 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-5xl md:text-6xl font-serif text-karu-verde mb-3 flex items-baseline justify-center">
+                        18.168<span class="text-xl md:text-2xl text-karu-arena ml-1">m²</span>
+                    </div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Áreas comunes y zonas verdes</div>
+                </div>
+
+                <!-- Row 2 Stat 3 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-6xl md:text-7xl font-serif text-karu-verde mb-3">RPH</div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500 leading-relaxed">Régimen de propiedad<br>horizontal</div>
+                </div>
+
+                <!-- Row 2 Stat 4 -->
+                <div class="bg-white p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
+                    <div class="text-6xl md:text-7xl font-serif text-karu-verde mb-3">24/7</div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">Portería y seguridad</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ¿Por qué invertir en Karú ahora? -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-serif text-karu-verde mb-16 text-center leading-tight">Razones para invertir<br>en este momento</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Razón 1 -->
+                <div class="p-8 border border-karu-marfil hover:shadow-xl transition duration-300 bg-karu-claro bg-opacity-30">
+                    <div class="text-4xl font-serif text-karu-arena mb-4">01</div>
+                    <h3 class="text-xl font-serif text-karu-verde mb-3">Ubicación irrepetible</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">Frente a la Hacienda El Samán, a 5 minutos de Panaca y dentro del Patrimonio de la Humanidad (UNESCO).</p>
+                </div>
+                <!-- Razón 2 -->
+                <div class="p-8 border border-karu-marfil hover:shadow-xl transition duration-300 bg-karu-claro bg-opacity-30">
+                    <div class="text-4xl font-serif text-karu-arena mb-4">02</div>
+                    <h3 class="text-xl font-serif text-karu-verde mb-3">Preventa con valorización</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">Asegura precios de lanzamiento con potencial de valorización conforme avanza la obra y urbanismo.</p>
+                </div>
+                <!-- Razón 3 -->
+                <div class="p-8 border border-karu-marfil hover:shadow-xl transition duration-300 bg-karu-claro bg-opacity-30">
+                    <div class="text-4xl font-serif text-karu-arena mb-4">03</div>
+                    <h3 class="text-xl font-serif text-karu-verde mb-3">Activo tangible</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">Tierra escriturada bajo Régimen de Propiedad Horizontal (RPH). Tu patrimonio siempre protegido.</p>
+                </div>
+                <!-- Razón 4 -->
+                <div class="p-8 border border-karu-marfil hover:shadow-xl transition duration-300 bg-karu-claro bg-opacity-30">
+                    <div class="text-4xl font-serif text-karu-arena mb-4">04</div>
+                    <h3 class="text-xl font-serif text-karu-verde mb-3">Respaldo Timontti</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">Más de 20 años desarrollando inversiones inmobiliarias de alto valor en Colombia con capital propio.</p>
+                </div>
+            </div>
+            <div class="mt-16 text-center">
+                <a href="https://wa.me/573332392469?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20proyecto%20Kar%C3%BA%20Campestre" target="_blank" class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-bold px-8 py-4 uppercase tracking-widest text-sm hover:bg-[#128C7E] transition duration-300 whitespace-nowrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                    Contáctanos por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Galería (Full Width & Auto Rotating) -->
+    <section class="bg-karu-verde">
+        <div class="swiper swiper-gallery w-full h-[60vh] md:h-[75vh]">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative">
+                    <img src="Imagenes/magnific_completa-la-imagen-con-co_WDIi0NPcXe.webp" alt="Galería 1" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="Imagenes/TIPO 2Diagonal.webp" alt="Galería 2" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="Imagenes/Zona infantil.webp" alt="Galería 3" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="Imagenes/general_karu_ultimo_audio_2.webp" alt="Galería 4" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="Imagenes/toma1.webp" alt="Galería 5" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="Imagenes/Pádel.webp" alt="Galería 6" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espacios (Amenidades) -->
+    <section class="py-24 px-6 bg-karu-claro">
+        <div class="max-w-6xl mx-auto">
+            <h4 class="text-[11px] font-bold tracking-[0.25em] text-karu-arena uppercase mb-4 text-center">Amenidades</h4>
+            <h2 class="text-4xl md:text-5xl font-serif text-karu-verde mb-16 text-center leading-tight">Espacios para <span class="text-karu-arena italic">disfrutar</span> de la vida</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sendero Ecológico (Destacado - ocupa 2 columnas en pantallas grandes) -->
+                <div class="relative group h-72 md:h-80 overflow-hidden lg:col-span-2 shadow-lg">
+                    <img src="Imagenes/Sendero ecologico.webp" alt="Sendero ecológico" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" id="img-sendero">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                        <h3 class="text-2xl font-serif text-white">Sendero ecológico</h3>
+                    </div>
+                </div>
+                
+                <!-- Cancha de Pádel -->
+                <div class="relative group h-72 md:h-80 overflow-hidden shadow-lg">
+                    <img src="Imagenes/Pádel.webp" alt="Cancha de Pádel" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" id="img-padel">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                        <h3 class="text-2xl font-serif text-white">Cancha de Pádel</h3>
+                    </div>
+                </div>
+                
+                <!-- Gimnasio -->
+                <div class="relative group h-72 md:h-80 overflow-hidden shadow-lg">
+                    <img src="Imagenes/Gimnasio.webp" alt="Gimnasio" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" id="img-gym">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                        <h3 class="text-2xl font-serif text-white">Gimnasio</h3>
+                    </div>
+                </div>
+                
+                <!-- Zona infantil -->
+                <div class="relative group h-72 md:h-80 overflow-hidden shadow-lg">
+                    <img src="Imagenes/Zona infantil.webp" alt="Zona infantil" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" id="img-infantil">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                        <h3 class="text-2xl font-serif text-white">Zona infantil</h3>
+                    </div>
+                </div>
+                
+                <!-- Salón social -->
+                <div class="relative group h-72 md:h-80 overflow-hidden shadow-lg">
+                    <img src="Imagenes/Salon social.webp" alt="Salón social" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" id="img-social">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                        <h3 class="text-2xl font-serif text-white">Salón social</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Plan Maestro -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center justify-between mb-12">
+            <div class="md:w-1/2 text-left">
+                <h4 class="text-sm font-bold tracking-widest text-karu-arena uppercase mb-2">Plan Maestro</h4>
+                <h2 class="text-4xl md:text-5xl font-serif text-karu-verde mb-4">Una etapa, <span class="text-karu-arena italic">seis</span> sectores</h2>
+            </div>
+            <div class="md:w-1/2 text-left">
+                <p class="text-lg leading-relaxed text-gray-700">Karú Campestre comprende una sola etapa de desarrollo, distribuida en seis sectores internos (A-F) sobre la topografía natural del terreno. 80 lotes diseñados para maximizar vistas, privacidad y aprovechamiento del paisaje.</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto text-center">
+            <img src="Imagenes/Planos.webp" alt="Plan Maestro Karú" class="w-full h-auto drop-shadow-xl rounded-sm">
+            <div class="mt-12">
+                <a href="#" onclick="openModal(event)" class="inline-block bg-karu-verde text-white font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-karu-arena transition duration-300">
+                    Agenda una visita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Form & Payment Plan (Confianza) -->
+    <section id="contacto" class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+                <h4 class="text-[11px] font-bold tracking-[0.25em] text-karu-arena uppercase mb-4">Plan comercial</h4>
+                <h2 class="text-4xl md:text-5xl font-serif text-karu-verde mb-6">Una <span class="text-karu-arena italic">estructura</span> pensada para usted</h2>
+                <p class="mb-12 text-gray-600 text-lg">Esquema de pagos progresivo, diseñado para inversionistas que entienden que las mejores oportunidades requieren tiempo y respaldo.</p>
+                
+                <div class="space-y-10">
+                    <div class="flex items-start">
+                        <div class="text-4xl font-serif text-karu-arena w-28">10%</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wider text-karu-verde mb-1">Separación</h4>
+                            <p class="text-sm text-gray-600">Cuota inicial al momento de la firma de la Promesa de Compraventa.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="text-4xl font-serif text-karu-arena w-28">40%</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wider text-karu-verde mb-1">Construcción</h4>
+                            <p class="text-sm text-gray-600">Distribuido en 18 cuotas mensuales una vez se decreta el punto de equilibrio.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="text-4xl font-serif text-karu-arena w-28">50%</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wider text-karu-verde mb-1">Escrituración</h4>
+                            <p class="text-sm text-gray-600">Saldo contra escrituración del lote a nombre del comprador.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="h-full">
+                <img src="Imagenes/toma10.webp" alt="Inversión en Quindío" class="w-full h-full object-cover shadow-xl rounded-sm">
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="bg-karu-verde text-karu-marfil py-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center">
+            <div class="md:text-left text-sm uppercase tracking-wider opacity-80 order-2 md:order-1">
+                <p>Un proyecto de TIMONTTI · 2026</p>
+            </div>
+            <div class="flex justify-center order-1 md:order-2">
+                <img src="logo karu (2).png" alt="Karú Campestre" class="h-24 md:h-32 object-contain opacity-90">
+            </div>
+            <div class="md:text-right text-sm opacity-80 order-3">
+                <p class="mb-2">Avenida Circunvalar # 1-14 of. 102</p>
+                <p class="mb-2 font-bold">Llámanos: <a href="tel:+573332392469" class="hover:text-white transition">+57 333 239 2469</a></p>
+                <p>gestion.activos@timontti.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Formulario -->
+    <div id="contactModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm px-4">
+        <div class="bg-white text-karu-verde p-10 md:p-14 shadow-2xl relative w-full max-w-lg transform scale-95 transition-transform duration-300" id="modalContent">
+            <button onclick="closeModal()" class="absolute top-4 right-6 text-gray-400 hover:text-karu-verde transition text-4xl">&times;</button>
+            <h3 class="text-3xl font-serif mb-2">Etapa 1 ya en venta</h3>
+            <p class="text-sm text-karu-verde opacity-80 mb-8">Déjenos sus datos y un asesor se pondrá en contacto para brindarle toda la información.</p>
+            <form action="gracias.html" class="space-y-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold mb-2">Nombre completo</label>
+                    <input type="text" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold mb-2">Correo electrónico</label>
+                    <input type="email" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="juan@correo.com" required>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold mb-2">Teléfono</label>
+                    <input type="tel" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="+57 300 000 0000" required>
+                </div>
+                <div class="flex items-start gap-2 pt-2">
+                    <input type="checkbox" id="privacy-modal" class="mt-0.5 accent-karu-verde" required>
+                    <label for="privacy-modal" class="text-[11px] text-gray-500 leading-tight">
+                        Acepto la <a href="#" class="underline hover:text-karu-verde">política de tratamiento de datos</a>
+                    </label>
+                </div>
+                <button type="submit" class="w-full bg-karu-verde text-white py-4 mt-6 uppercase tracking-widest text-sm hover:bg-karu-arena transition duration-300">Enviar</button>
+                <div class="mt-6 text-center border-t border-gray-200 pt-4">
+                    <p class="text-sm font-bold text-karu-verde uppercase tracking-wide">
+                        ¿Prefieres hablar ahora?<br>
+                        <a href="tel:+573332392469" class="inline-block mt-2 text-karu-arena hover:text-karu-verde transition duration-300">Llámanos: +57 333 239 2469</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Inicializar Swiper para el Hero
+        const swiperHero = new Swiper('.swiper-hero', {
+            loop: true,
+            effect: 'fade',
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Inicializar Swiper para la Galería (Paso foto por foto)
+        const swiperGallery = new Swiper('.swiper-gallery', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 1000,
+            allowTouchMove: true,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+
+        // Lógica del Modal
+        const modal = document.getElementById('contactModal');
+        const modalContent = document.getElementById('modalContent');
+        
+        function openModal(e) {
+            if(e) e.preventDefault();
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+        }
+        
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.add('scale-95');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>
