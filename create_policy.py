@@ -1,0 +1,153 @@
+import os
+
+# 1. Update index.html links
+index_path = r"C:\Users\user\Desktop\Karu\landing_preview\index.html"
+with open(index_path, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+content = content.replace('href="#" class="underline hover:text-karu-verde">política de tratamiento de datos</a>', 'href="politica-de-privacidad.html" target="_blank" class="underline hover:text-karu-verde">política de tratamiento de datos</a>')
+
+with open(index_path, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+# 2. Create politica-de-privacidad.html
+html_template = """<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas de Privacidad | Karú Campestre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-sans text-gray-800 bg-karu-claro antialiased">
+    <!-- Navbar / Header simple -->
+    <header class="bg-karu-verde py-6 px-6 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo karu (2).png" alt="Karú Campestre" class="h-12 object-contain">
+            </a>
+            <a href="index.html" class="text-white hover:text-karu-arena uppercase text-xs tracking-widest transition">Volver al inicio</a>
+        </div>
+    </header>
+
+    <main class="py-16 px-6">
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-16 shadow-xl rounded-sm">
+            <h1 class="text-3xl md:text-5xl font-serif text-karu-verde mb-10 border-b border-gray-200 pb-6">Políticas de privacidad y tratamiento de datos personales</h1>
+            
+            <div class="prose prose-sm md:prose-base max-w-none text-gray-700 space-y-6">
+                <p class="font-bold">Introducción:</p>
+                <p>TIMONTI S.A.S., sociedad comercial identificada con NIT 901.650.754 – 1 y con domicilio en Pereira, en su calidad de responsable del tratamiento de datos personales, en cumplimiento de la Ley 1581 de 2012 y su normativa reglamentaria, establece la presente Política de Privacidad y Tratamiento de Datos Personales. Esta política garantiza que los titulares de la información puedan conocer, rectificar, actualizar o solicitar la eliminación de sus datos personales.</p>
+                <p>Este documento forma parte integral de los Términos y Condiciones de uso del sitio web www.timonti.com. Al aceptar dichos términos, el usuario manifiesta su conformidad con esta política.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">1. Política de tratamiento de datos.</h3>
+                <p>A través de esta política, TIMONTI S.A.S. en cumplimiento de su deber legal y reglamentario, propende por hacer efectiva la garantía constitucional de protección a la intimidad personal y familiar de todos los ciudadanos, estableciendo instrumentos y controles expeditos de cara a dar un tratamiento adecuado a la información que administra.</p>
+                <p>La presente política establece los términos, condiciones y finalidades bajo las cuales TIMONTI S.A.S., como responsable de los datos personales obtenidos a través de sus distintos canales de atención, trata la información de todas las personas que en algún momento hayan suministrado datos personales (en adelante "Titular del Dato").</p>
+                <p>Los datos personales que custodia TIMONTI S.A.S., en su condición de responsable y/o encargado del sitio web, serán tratados cumpliendo los principios y regulaciones previstas en la normativa aplicable, las cuales están alineadas con las buenas prácticas internacionales en la materia. En consecuencia, si tiene alguna inquietud sobre esta Política de privacidad y Tratamiento de Datos Personales, o si quiere ponerse en contacto con por alguna otra razón, por favor envíenos su mensaje a: <a href="mailto:gestion.activos@timontti.com" class="text-karu-arena hover:underline">gestion.activos@timontti.com</a></p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">2. Información y datos personales:</h3>
+                <p>TIMONTI S.A.S. podrá recopilar información del usuario, de acuerdo a los servicios que utilice dentro de la plataforma web www.timonti.com. El tratamiento de los datos personales será obligatorio únicamente cuando el Titular del Dato, de manera voluntaria, ingrese su información personal con el propósito de que TIMONTI S.A.S. establezca contacto. En estos casos, los datos proporcionados serán tratados con la finalidad de gestionar actividades de publicidad, dar a conocer los proyectos y servicios de TIMONTI S.A.S., y facilitar la comunicación con usuarios interesados en ellos.</p>
+                <p>El suministro de esta información es voluntario; sin embargo, en caso de no proporcionarla, el usuario no podrá acceder a determinados beneficios relacionados con la oferta, adquisición o comercialización de los proyectos y servicios de TIMONTI S.A.S.</p>
+                <p>En todo momento, el Titular del Dato tendrá derecho a conocer, actualizar, rectificar y suprimir sus datos personales, así como a revocar la autorización otorgada para su tratamiento, conforme a lo establecido en la Ley 1581 de 2012 y sus decretos reglamentarios.</p>
+                <p>Los datos personales solicitados a los usuarios, recolectados para el uso y para los fines comerciales del Sitio y considerados como datos de carácter privado e información no disponible al público son:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Nombre Completo del usuario.</li>
+                    <li>Teléfono o celular.</li>
+                    <li>Correo electrónico.</li>
+                    <li>Mensaje.</li>
+                    <li>Información recolectada a través de la burbuja de WhatsApp, que puede ser, pero sin limitar: i. Datos de identificación: Nombre completo, número de identificación. ii. Datos de contacto: Número de teléfono asociado a la cuenta de WhatsApp, dirección de correo electrónico. iii. Datos de interacción: Mensajes enviados, consultas realizadas, archivos compartidos, respuestas brindadas por el Usuario. iv. Datos de preferencias: Información sobre proyectos o servicios de interés, historial de consultas, nivel de satisfacción con la atención recibida.</li>
+                </ul>
+                <p>Estos datos se recopilan siempre y cuando el Usuario esté interesado en ser contactado por el personal de TIMONTI S.A.S. para obtener información de los proyectos, servicios, y/o resolver inquietudes. TIMONTI S.A.S. no exige que los visitantes del Sitio registren su información personal y/o de cualquier otra índole para tener acceso a este y/o a su contenido.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">3. Mecanismo de obtención de la información.</h3>
+                <p>Los datos personales sujetos a esta política podrán ser obtenidos por cualquier medio legal, siempre con el conocimiento y la autorización previa de sus titulares. TIMONTI S.A.S. aclara que, al completar el formulario disponible en la sección "Contacto" o al interactuar con la burbuja de WhatsApp, el usuario otorga su consentimiento para el tratamiento de sus datos conforme a la presente política.</p>
+                <p>Los datos personales recolectados a través de la burbuja de WhatsApp podrán ser almacenados y utilizados para gestionar consultas, brindar soporte, mejorar la experiencia del usuario, ofrecer respuestas personalizadas y envío de publicidad. En este sentido, el Titular del Dato reconoce y acepta que, las conversaciones sostenidas a través de esta herramienta pueden ser almacenadas con fines administrativos y de calidad en el servicio. En todo caso, el usuario otorga su consentimiento expreso, previo e informado para el acceso, almacenamiento y uso de la información proporcionada a través del Sitio, de acuerdo con la presente Política de Privacidad y Tratamiento de Datos Personales.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">4. Finalidad del tratamiento de datos.</h3>
+                <p>La autorización para el tratamiento de sus datos personales faculta a TIMONTI S.A.S., en su calidad de responsable del tratamiento, para recolectar, transferir, almacenar, usar, circular, suprimir, compartir, actualizar y transmitir dichos datos con el fin de cumplir las siguientes finalidades:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Para cumplir con las obligaciones derivadas de los contratos comerciales y demás negocios jurídicos que celebra TIMONTI S.A.S. en desarrollo de su actividad principal con sus Usuarios.</li>
+                    <li>Para el cumplimiento de las obligaciones y/o compromisos derivados de las relaciones, contractuales o no, existentes con sus grupos de interés.</li>
+                    <li>Para el cumplimiento de las obligaciones legales que involucren datos personales de sus grupos de interés.</li>
+                    <li>Para efectuar las gestiones pertinentes para el desarrollo del objeto social de la compañía.</li>
+                    <li>Para elaborar Análisis de mercado, con el fin de mejorar las estrategias de comercialización. No obstante, es de aclarar que en dichos análisis no se incluirá ninguna información personal que permita la identificación de los usuarios.</li>
+                    <li>Para el cumplimiento de ordenes de autoridades judiciales o administrativas.</li>
+                    <li>Realizar invitaciones a eventos y dar a conocer nuevos proyectos y servicios relacionados con el objeto social de la compañía.</li>
+                    <li>Para la gestión comercial y relacionamiento con sus grupos de interés.</li>
+                    <li>Para facilitar el canal de comunicación entre TIMONTI S.A.S. y sus usuarios.</li>
+                    <li>Analizar como el usuario utiliza y adquiere los servicios, actualizarlos y mejorarlos de manera continua.</li>
+                    <li>Proteger frente al uso indebido y fraude, ofrecer publicidad personalizada en sitios web y aplicaciones de terceros, según lo permita la ley.</li>
+                </ul>
+                <p>TIMONTI S.A.S. se reserva el derecho de revelar información personal a terceros de buena fe y cuando la ley lo requiera, con el fin de hacer cumplir sus términos de servicio, proteger los derechos, la propiedad o la seguridad de TIMONTI S.A.S., del público o según lo estipulado en esta Política de Privacidad.</p>
+                <p>Al aceptar esta política, el usuario autoriza a TIMONTI S.A.S., como titular del Sitio y responsable del tratamiento de los datos, a revelar, compartir y vender la información personal recopilada en el Sitio a terceros para fines promocionales. No obstante, el usuario podrá solicitar su exclusión de dichas actividades en cualquier momento.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">5. Deberes de los responsables.</h3>
+                <p>TIMONTI S.A.S. como titular del Sitio y responsable del tratamiento de los datos personales, deberá cumplir los siguientes deberes:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Informar a la autoridad de protección de datos cuando se presenten violaciones a los códigos de seguridad y existan riesgos en la administración de la información de los Titulares.</li>
+                    <li>Garantizar al Titular del Dato, en todo tiempo, el pleno y efectivo ejercicio del derecho de habeas data.</li>
+                    <li>Solicitar y conservar, copia de la respectiva autorización otorgada por el Titular del Dato.</li>
+                    <li>Informar debidamente al Titular del Dato sobre la finalidad de la recolección y los derechos que le asisten por virtud de la autorización otorgada.</li>
+                    <li>Conservar la información bajo las condiciones de seguridad necesarias para impedir su adulteración, pérdida, consulta, uso o acceso no autorizado o fraudulento.</li>
+                    <li>Rectificar la información cuando sea incorrecta.</li>
+                    <li>Velar por el respeto las condiciones de seguridad y privacidad de la información del Titular.</li>
+                    <li>Tramitar las consultas y reclamos formulados en los términos señalados en el presente documento.</li>
+                    <li>Actuar cuando determinada información se encuentra en discusión por parte del Titular, una vez se haya presentado la reclamación y no haya finalizado el trámite respectivo.</li>
+                    <li>Informar a solicitud del Titular del Dato sobre el uso dado a sus datos.</li>
+                </ul>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">6. Derechos del titular de los datos personales.</h3>
+                <p>Se informa al Titular del Dato, los derechos que las leyes sobre protección de datos personales le ofrecen, los cuales se enlista a continuación y que TIMONTI S.A.S., como responsable de la política de tratamiento de datos y titular del Sitio garantiza a través del cumplimiento de los procedimientos definidos:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Derecho de acceso.</strong> Permite al titular obtener sus datos personales que se encuentren almacenados o sujetos a tratamiento en bases de datos de instituciones públicas o privadas, además de conocer el origen y la finalidad para los cuales han sido recabados.</li>
+                    <li><strong>Derecho de rectificación.</strong> Permite al titular solicitar la corrección de sus datos personales que sean incorrectos, irrelevantes, incompletos, desfasados, inexactos, falsos o impertinentes.</li>
+                    <li><strong>Derecho de cancelación.</strong> Permite al titular solicitar la eliminación de sus datos personales incorrectos, irrelevantes, incompletos, desfasados, inexactos, falsos o impertinentes.</li>
+                    <li><strong>Derecho de oposición.</strong> Permite al titular, por los motivos fundados y legítimos relacionados con una situación en particular, negarse a proporcionar sus datos personales o a que sean objeto de determinado tratamiento, así como a revocar su consentimiento.</li>
+                </ul>
+                <p>En todo momento, el Titular del Dato podrá ejercer estos derechos, los cuales son irrenunciables. Para ejercer estos derechos usted debe tener en cuenta la siguiente información:</p>
+                <ul class="list-none space-y-4">
+                    <li><strong>6.1.</strong> Para la consulta de datos personales, la solicitud de la autorización o de información sobre el uso dado a los datos, el Usuario podrá realizar la consulta por escrito al correo electrónico gestion.activos@timontti.com. La consulta debe ser a través de una comunicación dirigida al responsable del tratamiento de datos personales TIMONTI S.A.S., con el nombre completo del titular, la descripción de la consulta, correo electrónico y el teléfono de contacto.</li>
+                    <li><strong>6.2.</strong> Para presentar una solicitud de cancelación, rectificación u oposición, o para presentar reclamo por presunto incumplimiento de los deberes de TIMONTI S.A.S., como responsable del tratamiento de datos, se debe realizar la solicitud por escrito al correo electrónico gestion.activos@timontti.com. La solicitud o reclamo debe realizarse a través de comunicación dirigida a nombre TIMONTI S.A.S, con el nombre completo del titular, la descripción de los hechos que dan lugar a la solicitud o reclamo, correo electrónico, el teléfono de contacto y se deben anexar los documentos que se quiera hacer valer.</li>
+                    <li><strong>6.3.</strong> Si la solicitud o reclamo resulta incompleta, se le requerirá dentro de los cinco (5) días hábiles siguientes a la recepción del reclamo para que subsane las fallas. Transcurridos dos (2) meses desde la fecha del requerimiento, sin que el solicitante presente la información requerida, se entenderá que ha desistido del reclamo.</li>
+                    <li><strong>6.4.</strong> Recibidas las solicitudes de ejercicio de Habeas Data, TIMONTI S.A.S. como titular del Sitio y responsable del tratamiento de los datos dará respuesta en los términos de ley, término que no podrá ser mayor a quince (15) días hábiles a partir de la fecha de dicha solicitud.</li>
+                </ul>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">7. Seguridad.</h3>
+                <p>TIMONTI S.A.S. se compromete a garantizar el uso adecuado y el tratamiento seguro de los datos personales contenidos en sus bases de datos, evitando el acceso no autorizado por parte de terceros que puedan conocer, vulnerar, modificar, divulgar y/o destruir la información almacenada.</p>
+                <p>Todos los empleados, proveedores y aliados se encuentran comprometidos con la confidencialidad y manipulación adecuada de las bases de datos atendiendo a los lineamientos sobre tratamiento de la información establecida en la Ley.</p>
+                <p>Así mismo, TIMONTI S.A.S., como responsable del tratamiento de datos, emplea métodos de seguridad razonables para proteger la información alojada en sus servidores. No obstante, ningún sistema es completamente seguro, por lo que no es posible para TIMONTI S.A.S. garantizar la absoluta protección de nuestros servidores. Existe la posibilidad de que la información proporcionada por el usuario sea interceptada durante la transmisión de datos.</p>
+                <p>De igual manera, se informa a los usuarios que TIMONTI S.A.S., como titular del sitio web, gestiona directamente el tratamiento de los datos personales. No obstante, se reserva el derecho de delegar dicha función a un tercero. En cualquier caso, TIMONTI S.A.S. exige al encargado del tratamiento la implementación de lineamientos y procedimientos adecuados para la protección de los datos personales, garantizando su estricta confidencialidad. Finalmente, el titular de los datos proporciona su información de manera libre y voluntaria, y declara haber leído y aceptado expresamente los presentes términos y condiciones.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">8. Actualización y modificaciones.</h3>
+                <p>TIMONTI S.A.S., como responsable del tratamiento de datos personales y como titular del Sitio se reserva el derecho de modificar, en cualquier momento, de manera unilateral, sus políticas y procedimientos de tratamiento de datos personales. Cualquier cambio será publicado y anunciado. Además, se conservarán las versiones anteriores de la presente políticas de tratamiento de datos personales.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">9. Revelación de la información.</h3>
+                <p>El Titular del Dato, al aceptar esta Política de Privacidad y Tratamiento de Datos Personales, reconoce y acepta que TIMONTI S.A.S. puede suministrar su información a entidades vinculadas y aliadas, así como a entidades judiciales, administrativas y demás organismos del Estado que la requieran en el ejercicio de sus funciones.</p>
+                <p>Así mismo, el Titular del Dato acepta que sus datos pueden ser objeto de auditorías internas o externas realizadas por empresas o autoridades encargadas de este tipo de control. Todo lo anterior estará sujeto a estrictos principios de confidencialidad y protección de la información.</p>
+
+                <h3 class="text-xl font-serif text-karu-verde mt-8">10. Responsable del tratamiento de datos personales:</h3>
+                <p>TIMONTI S.A.S. en su calidad de responsable del tratamiento de datos personales, a través de la presente política de privacidad y tratamiento de datos personales informa a todos los usuarios del Sitio, que los datos de identificación y de contacto mediante los cuales se realizará la recepción de consultas, reclamos, quejas o para el ejercicio de los derechos como Titular del Dato serán atendidos por:</p>
+                <ul class="list-none space-y-1 bg-karu-claro p-6 mt-4">
+                    <li><strong>Razón Social:</strong> TIMONTI S.A.S.</li>
+                    <li><strong>NIT:</strong> 901.650.754 – 1</li>
+                    <li><strong>Domicilio Principal:</strong> Avenida Circunvalar # 1-14. Oficina 102. Pereira, Risaralda.</li>
+                    <li><strong>Correo electrónico:</strong> <a href="mailto:gestion.activos@timontti.com" class="text-karu-arena hover:underline">gestion.activos@timontti.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#1a1a1a] text-white py-12 px-6 border-t-4 border-karu-arena">
+        <div class="max-w-7xl mx-auto text-center text-sm text-gray-500">
+            <p>&copy; 2026 Karú Campestre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+"""
+
+policy_path = r"C:\Users\user\Desktop\Karu\landing_preview\politica-de-privacidad.html"
+with open(policy_path, 'w', encoding='utf-8') as f:
+    f.write(html_template)
+
+print("Created policy page and linked it.")

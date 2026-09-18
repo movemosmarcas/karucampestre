@@ -141,22 +141,22 @@
                 <div class="bg-white text-karu-verde p-10 lg:p-14 shadow-xl">
                     <h3 class="text-3xl font-serif mb-2">Etapa 1 ya en venta</h3>
                     <p class="text-sm text-karu-verde opacity-80 mb-8">Déjenos sus datos y un asesor se pondrá en contacto para brindarle toda la información.</p>
-                    <form action="gracias.html" class="space-y-6">
+                    <form id="form-inline" action="gracias.html" class="space-y-6">
                         <div>
                             <label class="block text-xs uppercase tracking-wider font-bold mb-2">Nombre completo</label>
-                            <input type="text" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="Ej. Juan Pérez" required>
+                            <input type="text" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="Ej. Juan Pérez" name="nombre" required>
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-wider font-bold mb-2">Correo electrónico</label>
-                            <input type="email" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="juan@correo.com" required>
+                            <input type="email" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="juan@correo.com" name="correo" required>
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-wider font-bold mb-2">Teléfono</label>
-                            <input type="tel" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="+57 300 000 0000" required>
+                            <input type="tel" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="+57 300 000 0000" name="telefono" required>
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-wider font-bold mb-2">¿Cuánto deseas invertir en tu lote?</label>
-                            <select class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" required>
+                            <select class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" name="inversion" required>
                                 <option value="" disabled selected>Selecciona una opción</option>
                                 <option value="Máximo 600 millones">Máximo 600 millones</option>
                                 <option value="De 600 a 700 millones">De 600 a 700 millones</option>
@@ -166,7 +166,7 @@
                         <div class="flex items-start gap-2 pt-2">
                             <input type="checkbox" id="privacy-inline" class="mt-0.5 accent-karu-verde" required>
                             <label for="privacy-inline" class="text-[11px] text-gray-500 leading-tight">
-                                Acepto la <a href="#" class="underline hover:text-karu-verde">política de tratamiento de datos</a>
+                                Acepto la <a href="politica-de-privacidad.html" target="_blank" class="underline hover:text-karu-verde">política de tratamiento de datos</a>
                             </label>
                         </div>
                         <button type="submit" class="w-full bg-karu-verde text-white py-4 mt-6 uppercase tracking-widest text-sm hover:bg-karu-arena transition duration-300">Enviar</button>
@@ -489,22 +489,22 @@
             <button onclick="closeModal()" class="absolute top-4 right-6 text-gray-400 hover:text-karu-verde transition text-4xl">&times;</button>
             <h3 class="text-3xl font-serif mb-2">Etapa 1 ya en venta</h3>
             <p class="text-sm text-karu-verde opacity-80 mb-8">Déjenos sus datos y un asesor se pondrá en contacto para brindarle toda la información.</p>
-            <form action="gracias.html" class="space-y-6">
+            <form id="form-inline" action="gracias.html" class="space-y-6">
                 <div>
                     <label class="block text-xs uppercase tracking-wider font-bold mb-2">Nombre completo</label>
-                    <input type="text" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="Ej. Juan Pérez" required>
+                    <input type="text" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="Ej. Juan Pérez" name="nombre" required>
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-wider font-bold mb-2">Correo electrónico</label>
-                    <input type="email" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="juan@correo.com" required>
+                    <input type="email" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="juan@correo.com" name="correo" required>
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-wider font-bold mb-2">Teléfono</label>
-                    <input type="tel" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="+57 300 000 0000" required>
+                    <input type="tel" class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" placeholder="+57 300 000 0000" name="telefono" required>
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-wider font-bold mb-2">¿Cuánto deseas invertir en tu lote?</label>
-                    <select class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" required>
+                    <select class="w-full border-b border-karu-piedra py-3 focus:outline-none focus:border-karu-verde bg-transparent text-karu-verde" name="inversion" required>
                         <option value="" disabled selected>Selecciona una opción</option>
                         <option value="Máximo 600 millones">Máximo 600 millones</option>
                         <option value="De 600 a 700 millones">De 600 a 700 millones</option>
@@ -514,7 +514,7 @@
                 <div class="flex items-start gap-2 pt-2">
                     <input type="checkbox" id="privacy-modal" class="mt-0.5 accent-karu-verde" required>
                     <label for="privacy-modal" class="text-[11px] text-gray-500 leading-tight">
-                        Acepto la <a href="#" class="underline hover:text-karu-verde">política de tratamiento de datos</a>
+                        Acepto la <a href="politica-de-privacidad.html" target="_blank" class="underline hover:text-karu-verde">política de tratamiento de datos</a>
                     </label>
                 </div>
                 <button type="submit" class="w-full bg-karu-verde text-white py-4 mt-6 uppercase tracking-widest text-sm hover:bg-karu-arena transition duration-300">Enviar</button>
@@ -586,7 +586,37 @@
             if (e.target === modal) closeModal();
         });
     </script>
+
+    <!-- Google Sheets Form Submission -->
+    <script>
+        const scriptURL = 'AQUI_PONDREMOS_LA_URL_DEL_SCRIPT';
+        const forms = document.querySelectorAll('form');
+
+        forms.forEach(form => {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                
+                // Change button text to indicate loading
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Enviando...';
+                btn.disabled = true;
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        window.location.href = form.getAttribute('action');
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        alert('Hubo un error enviando el formulario. Por favor intenta de nuevo.');
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
+
 
 
