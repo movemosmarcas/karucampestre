@@ -602,7 +602,7 @@
                 btn.innerHTML = 'Enviando...';
                 btn.disabled = true;
 
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
                     .then(response => {
                         window.location.href = form.getAttribute('action');
                     })
@@ -617,6 +617,7 @@
     </script>
 </body>
 </html>
+
 
 
 
