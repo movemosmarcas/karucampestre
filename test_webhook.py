@@ -1,6 +1,6 @@
 import requests
 
-url = "https://script.google.com/macros/s/AKfycbzhdETiYhYUoqlbYVr61SuJCWxQ3wUkf3Tiu66pNgLhDLxsw8sbss-cY_zGUaS-NsRI/exec"
+url = "https://script.google.com/macros/s/AKfycbwTWSjuEN7GL1yQ4pCsK43C3r3TNdOxLRy2Wnziiggq6wTIlqdOCIPwHAb0WTlMbx_3/exec"
 data = {
     "nombre": "Test Agent",
     "correo": "test@agent.com",
@@ -11,3 +11,4 @@ data = {
 response = requests.post(url, data=data)
 print("Status Code:", response.status_code)
 print("Response Text:", response.text)
+
