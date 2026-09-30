@@ -201,7 +201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="max-w-7xl mx-auto py-16 px-6">
             <h2 class="text-3xl md:text-5xl font-serif text-white mb-12 text-center">Así se ven nuestros lotes campestres</h2>
             <div class="relative w-full h-auto shadow-2xl rounded-sm group">
-                <video id="promoVideo" class="w-full h-auto rounded-sm" controls playsinline>
+                <video id="promoVideo" class="w-full h-auto rounded-sm" playsinline>
                     <source src="video_landing.mp4" type="video/mp4">
                     Tu navegador no soporta el formato de video.
                 </video>
@@ -225,6 +225,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             if(playOverlay && promoVideo) {
                 playOverlay.addEventListener('click', () => {
+                    promoVideo.setAttribute('controls', 'controls');
                     promoVideo.play();
                 });
 
