@@ -666,7 +666,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 btn.innerHTML = 'Enviando...';
                 btn.disabled = true;
 
-                fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+                // Construir formData y agregar parámetros UTM / tracking
+                const formData = new FormData(form);
+                const urlParams = new URLSearchParams(window.location.search);
+                
+                if (urlParams.has('utm_source')) formData.append('UTM Source', urlParams.get('utm_source'));
+                if (urlParams.has('utm_medium')) formData.append('UTM Medium', urlParams.get('utm_medium'));
+                if (urlParams.has('utm_campaign')) formData.append('UTM Campaign', urlParams.get('utm_campaign'));
+                if (urlParams.has('utm_content')) formData.append('UTM Content', urlParams.get('utm_content'));
+                if (urlParams.has('utm_term')) formData.append('UTM Term', urlParams.get('utm_term'));
+                
+                if (urlParams.has('gclid')) formData.append('ID clic (GCLID / FBCLID)', urlParams.get('gclid'));
+                if (urlParams.has('fbclid')) formData.append('ID clic (GCLID / FBCLID)', urlParams.get('fbclid'));
+                
+                formData.append('URL / Landing de origen', window.location.href.split('?')[0]);
+                formData.append('Fuente del lead', 'Form - Karú Campestre - Sep 2026');
+
+                fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
                     .then(response => {
                         setTimeout(() => { window.location.href = form.getAttribute('action'); }, 800);
                     })
