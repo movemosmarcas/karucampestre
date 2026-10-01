@@ -668,7 +668,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
                     .then(response => {
-                        window.location.href = form.getAttribute('action');
+                        setTimeout(() => { window.location.href = form.getAttribute('action'); }, 800);
                     })
                     .catch(error => {
                         console.error('Error!', error.message);
