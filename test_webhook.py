@@ -1,6 +1,6 @@
 import requests
 
-url = "https://script.google.com/macros/s/AKfycbwTWSjuEN7GL1yQ4pCsK43C3r3TNdOxLRy2Wnziiggq6wTIlqdOCIPwHAb0WTlMbx_3/exec"
+url = "https://script.google.com/macros/s/AKfycbxNQFaSZc60fAsYi2MzozRaMQpYEjfPz-52R3T-x5y96-TLTjdephbYRiq68PimvqRH8Q/exec"
 data = {
     "nombre": "Test Agent",
     "correo": "test@agent.com",
